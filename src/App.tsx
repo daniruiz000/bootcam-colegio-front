@@ -7,12 +7,14 @@ import ClassroomPage from "./pages/ClassroomPage/ClassroomPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SubjectPage from "./pages/SubjectPage/SubjectPage";
 import UserPage from "./pages/UserPage/UserPage";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const App = (): JSX.Element => {
   return (
     <div className="App">
-      <h1>Hola amigos</h1>
       <HashRouter>
+        <Header/>
         <Routes>
           <Route path="/" element= {<HomePage></HomePage>}>
           </Route>
@@ -20,7 +22,7 @@ const App = (): JSX.Element => {
               path="/login"
               element={
                 <React.Suspense fallback={<p>Cargando...</p>}>
-                  <LoginPage></LoginPage>
+                  <LoginPage/>
                 </React.Suspense>
               }
             ></Route>
@@ -28,7 +30,7 @@ const App = (): JSX.Element => {
               path="/classroom"
               element={
                 <React.Suspense fallback={<p>Cargando...</p>}>
-                  <ClassroomPage></ClassroomPage>
+                  <ClassroomPage/>
                 </React.Suspense>
               }
             ></Route>
@@ -36,7 +38,7 @@ const App = (): JSX.Element => {
               path="/subject"
               element={
                 <React.Suspense fallback={<p>Cargando...</p>}>
-                  <SubjectPage></SubjectPage>
+                  <SubjectPage/>
                 </React.Suspense>
               }
             ></Route>
@@ -44,11 +46,12 @@ const App = (): JSX.Element => {
               path="/user"
               element={
                 <React.Suspense fallback={<p>Cargando...</p>}>
-                  <UserPage></UserPage>
+                  <UserPage/>
                 </React.Suspense>
               }
             ></Route>
         </Routes>
+        <Footer/>
       </HashRouter>
     </div>
   );
