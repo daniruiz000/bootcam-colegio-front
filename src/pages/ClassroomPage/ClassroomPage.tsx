@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 import { ClassroomResponse } from "../../models/Classroom";
 import ClassroomTable from "./ClassroomTable/ClassroomTable";
 import ClassroomForm from "./ClassroomForm/ClassroomForm";
+import Header from "../../components/Header/Header";
 
 const API_URL_CLASSROOM = `${process.env.REACT_APP_API_URL as string}/classroom`
 
@@ -38,6 +39,7 @@ const ClassroomPage = (): JSX.Element => {
   }
   return (
     <div className="classroom-page page">
+      <Header/>
       {
         authInfo?.userInfo ? (
           <>
