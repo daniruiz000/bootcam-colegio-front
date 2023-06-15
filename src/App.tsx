@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.scss";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
@@ -10,15 +9,40 @@ import UserPage from "./pages/UserPage/UserPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
+import React, { createContext, useState } from "react";
+import { UserResponse } from "./models/User";
+
+interface AuthContextInfo {
+  userInfo?: UserResponse;
+  userToken?: string;
+  logIn?: (userToken: string, userInfo: UserResponse) => void;
+  logOut?: () => void;
+}
+
+export const AuthContext = createContext<AuthContextInfo>({})
+
 const App = (): JSX.Element => {
+  const [userToken, setUserToken] = useState<string | undefined>()
+  const [userInfo, setUserInfo] = useState<UserResponse | undefined>()
+
+  const logIn = (userTokenFromApi: string, userInfoFromApi: UserResponse): void => {
+    setUserToken(userTokenFromApi)
+    setUserInfo(userInfoFromApi)
+  }
+
+  const logOut = (): void => {
+    setUserToken(undefined)
+    setUserInfo(undefined)
+  }
   return (
     <div className="App">
-      <HashRouter>
-        <Header/>
-        <Routes>
-          <Route path="/" element= {<HomePage></HomePage>}>
-          </Route>
-          <Route
+      <AuthContext.Provider value={{ userInfo, userToken, logIn, logOut }}>
+        <HashRouter>
+          <Header/>
+          <Routes>
+            <Route path="/" element= {<HomePage></HomePage>}>
+            </Route>
+            <Route
               path="/login"
               element={
                 <React.Suspense fallback={<p>Cargando...</p>}>
@@ -26,7 +50,7 @@ const App = (): JSX.Element => {
                 </React.Suspense>
               }
             ></Route>
-          <Route
+            <Route
               path="/classroom"
               element={
                 <React.Suspense fallback={<p>Cargando...</p>}>
@@ -34,7 +58,7 @@ const App = (): JSX.Element => {
                 </React.Suspense>
               }
             ></Route>
-          <Route
+            <Route
               path="/subject"
               element={
                 <React.Suspense fallback={<p>Cargando...</p>}>
@@ -42,7 +66,7 @@ const App = (): JSX.Element => {
                 </React.Suspense>
               }
             ></Route>
-          <Route
+            <Route
               path="/user"
               element={
                 <React.Suspense fallback={<p>Cargando...</p>}>
@@ -50,9 +74,10 @@ const App = (): JSX.Element => {
                 </React.Suspense>
               }
             ></Route>
-        </Routes>
-        <Footer/>
-      </HashRouter>
+          </Routes>
+          <Footer/>
+        </HashRouter>
+      </AuthContext.Provider>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import "./HomePage.scss";
 
-const HomePage = () => {
+const HomePage = (): JSX.Element => {
   return (
-    <div className="home-page">
-      <h1>HomePage</h1>
+    <div className="home-page page">
+      <h1>Home Page</h1>
       <p>Bienvenidos a la web del colegio Molón</p>
     </div>
   );

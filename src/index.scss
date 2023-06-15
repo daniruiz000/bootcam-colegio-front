@@ -1,0 +1,24 @@
+html, body {
+    font-family: 'Poppins',sans-serif
+}
+form {
+    text-align: center;
+
+    * {
+        display: block;
+        margin: 0 auto;
+    }
+
+    input, select {
+        margin-bottom: 20px;
+        padding: 3px, 7px;
+    }
+}
+
+table {
+    margin: 0 auto;
+}
+
+table th, table td{
+    padding: 5px;
+}
