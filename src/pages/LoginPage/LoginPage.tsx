@@ -1,6 +1,7 @@
 import React from "react";
 import "./LoginPage.scss";
 import { AuthContext } from "../../App";
+import Header from "../../components/Header/Header";
 const API_URL_LOGIN = `${process.env.REACT_APP_API_URL as string}/user/login`
 
 interface LogInInfo {
@@ -54,6 +55,7 @@ const LoginPage = (): JSX.Element => {
 
   return (
     <div className="login-page page">
+      <Header/>
       {
         authInfo?.userInfo ? (
           <>

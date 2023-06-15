@@ -5,6 +5,7 @@ import { AuthContext } from "../../App";
 import UserForm from "./UserForm/UserForm";
 import UserTable from "./UserTable/UserTable";
 import { UserResponse } from "../../models/User";
+import Header from "../../components/Header/Header";
 
 const API_URL_USER = `${process.env.REACT_APP_API_URL as string}/user`
 
@@ -38,6 +39,7 @@ const UserPage = (): JSX.Element => {
   }
   return (
     <div className="user-page page">
+      <Header/>
       {
         authInfo?.userInfo ? (
           <>

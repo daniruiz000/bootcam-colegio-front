@@ -6,7 +6,6 @@ import ClassroomPage from "./pages/ClassroomPage/ClassroomPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SubjectPage from "./pages/SubjectPage/SubjectPage";
 import UserPage from "./pages/UserPage/UserPage";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 import React, { createContext, useState } from "react";
@@ -38,7 +37,6 @@ const App = (): JSX.Element => {
     <div className="App">
       <AuthContext.Provider value={{ userInfo, userToken, logIn, logOut }}>
         <HashRouter>
-          <Header/>
           <Routes>
             <Route path="/" element= {<HomePage></HomePage>}>
             </Route>

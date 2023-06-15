@@ -5,6 +5,7 @@ import { AuthContext } from "../../App";
 import SubjectForm from "./SubjectForm/SubjectForm";
 import SubjectTable from "./SubjectTable/SubjectTable";
 import { SubjectResponse } from "../../models/Subject";
+import Header from "../../components/Header/Header";
 
 const API_URL_SUBJECT = `${process.env.REACT_APP_API_URL as string}/subject`
 
@@ -38,6 +39,7 @@ const SubjectPage = (): JSX.Element => {
   }
   return (
     <div className="subject-page page">
+      <Header/>
       {
         authInfo?.userInfo ? (
           <>
