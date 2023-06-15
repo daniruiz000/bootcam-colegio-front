@@ -10,7 +10,9 @@ const SubjectTable = (props: SubjectProps): JSX.Element => {
       <tr>
         <th>ID</th>
         <th>NAME</th>
-        <th>TEACHER</th>
+        <th>TEACHER ID</th>
+        <th>TEACHER FIRSTNAME</th>
+        <th>TEACHER LASTNAME</th>
         <th>CLASSROOM</th>
       </tr>
     </thead>
